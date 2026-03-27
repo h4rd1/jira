@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jira
+  namespace: jira
   labels:
     app: jira  # метки для самого Deployment
 spec:

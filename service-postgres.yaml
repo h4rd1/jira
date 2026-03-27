@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: jira-db
+  namespace: jira
 spec:
   selector:
     app: jira-db
