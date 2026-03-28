@@ -1,8 +1,5 @@
 FROM atlassian/jira-software:8.8.0
 
-LABEL maintainer="your-email@example.com"
-LABEL description="Jira with atlassian-agent.jar using catalina.sh for startup"
-
 # Копируем atlassian-agent.jar в контейнер с правильным владельцем
 COPY --chown=jira:jira atlassian-agent.jar /opt/atlassian/jira/
 
@@ -24,4 +21,4 @@ ENV JVM_MAXIMUM_MEMORY=8g
 EXPOSE 8080
 
 # Запуск Jira через catalina.sh run (вместо entrypoint.sh)
-CMD ["/opt/atlassian/jira/bin/catalina.sh", "run"]
+#CMD ["/opt/atlassian/jira/bin/catalina.sh", "run"]

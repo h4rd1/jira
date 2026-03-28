@@ -4,10 +4,16 @@ metadata:
   name: jira-ingress
   namespace: jira
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Основные аннотации для Traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
+    traefik.ingress.kubernetes.io/request-body-max-size: "100m"
+    traefik.ingress.kubernetes.io/buffer-max-wait-time: "120"
+    traefik.ingress.kubernetes.io/server.stripprefix: "false"
 spec:
+  ingressClassName: traefik
   rules:
-  - host: jira.example.com
+  - host: jira.example.com  # замените на ваш реальный домен
     http:
       paths:
       - path: /
